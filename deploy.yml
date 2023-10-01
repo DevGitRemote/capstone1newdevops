@@ -1,6 +1,6 @@
 ---
 apiVersion: apps/v1
-kind: Namespace
+kind: Deployment
 metadata:
   name: devops_new_capstone1
   labels:
