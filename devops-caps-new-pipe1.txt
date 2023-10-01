@@ -1,0 +1,44 @@
+pipeline{
+	agent none
+	environment{
+		DOCKERHUB_CREDENTIALS=credentials('')
+	}
+	stages{
+		stage('Import src from Git'){
+			agent{
+				label 'kubemaster'
+			}
+			steps{
+				git 'https://github.com/DevGitRemote/capstone1newdevops.git'
+			}
+		}
+		stage('Docker Build'){
+			agent{
+				label 'kubemaster'
+			}
+			steps{
+				sh 'sudo docker build /var/lib/jenkins/workspace/Dev-test-Docker -t devrajdock/capsnewdevops:latest'
+				echo 'image build successfully'
+			}
+		}
+		stage('Docker Login and Image Push'){
+			agent{
+				label 'kubemaster'
+			}
+			steps{
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | sudo docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+				echo 'Docker login successful'
+				sh 'sudo docker push devrajdock/capsnewdevops:latest'
+				sh 'sudo docker logout'
+			}
+		}
+		stage('Deploy via Docker'){
+			agent{
+				label 'kubemaster'
+			}
+			steps{
+				sh 'sudo docker run -itd -p 85:80 --name con1 -d devrajdock/capsnewdevops:latest'
+			}
+		}
+	}
+}
