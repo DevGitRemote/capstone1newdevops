@@ -16,7 +16,7 @@ spec:
      devops_new_capstone1: devops_new_capstone1
    spec:
     containers:
-    - name: con1
+    - name: con2
       image: devrajdock/capsnewdevops:latest
       ports:
       - containerPort: 80
