@@ -1,5 +1,5 @@
 # capstone1newdevops
-1. forked from https://github.com/rushtoakshay/DevOpsProfessional.git
+1. forked from https://github.com/rushtoakshay/DevOpsProfessional.git - this repo has only html and image and all other codes are coded by me.
 2. First the website is deployed via docker container in  port number 85.
 3. If docker deployment succeeds then it will trigger the deployment of that website via K8S in NodePort at 31010.
 4. devops-caps-new-pipe1 is for docker deployment.
