@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Namespace
+metadata:
+  name: devops_new_capstone1
+  labels:
+    devops_new_capstone1: devops_new_capstone1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+     devops_new_capstone1: devops_new_capstone1
+  template:
+   metadata:
+    labels:
+     devops_new_capstone1: devops_new_capstone1
+   spec:
+    containers:
+    - name: con1
+      image: devrajdock/capsnewdevops:latest
+      ports:
+      - containerPort: 80
+...
