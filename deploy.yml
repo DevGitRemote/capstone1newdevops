@@ -2,18 +2,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: devops_new_capstone1
+  name: devops-new-capstone1
   labels:
-    devops_new_capstone1: devops_new_capstone1
+    devops-new-capstone1: devops-new-capstone1
 spec:
   replicas: 2
   selector:
     matchLabels:
-     devops_new_capstone1: devops_new_capstone1
+     devops-new-capstone1: devops-new-capstone1
   template:
    metadata:
     labels:
-     devops_new_capstone1: devops_new_capstone1
+     devops-new-capstone1: devops-new-capstone1
    spec:
     containers:
     - name: con2
